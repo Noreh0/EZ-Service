@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap");
+body {
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Noto Sans", sans-serif;
+  background-color: #fff;
+}
+body * {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: "Noto Sans", sans-serif;
+  color: rgb(0, 0, 0);
+  text-align: left;
+  font-size: 60px;
+}
+
+.form {
+  width: 600px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  padding: 30px 35px;
+  background: #ffffff;
+  box-shadow: 0px 10px 40px #00000056;
+  border-left: 10px solid #ffae00;
+  border-right: 10px solid #ffae00;
+}
+
+p {
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px 0;
+  color: #000000de;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  border: 2px solid #dadada;
+  border-radius: 10px;
+  padding: 15px;
+  background: #dadada;
+  color: #000000de;
+  font-size: 12pt;
+  outline: none;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+input::placeholder {
+  color: #472b0094;
+}
+
+.confirm {
+  width: 300px;
+  padding: 16px 0;
+  margin: 25px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 3px;
+  background: #ffae00;
+  cursor: pointer;
+
+  display: block;
+
+  text-align: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img_trabalhador {
+  animation: bounce 6s linear infinite;
+  height: 70vh;
+  width: 25vh;
+  margin-left: 30vh;
+}
+
+@keyframes spin {
+  0%,
+  100% {
+    transform: rotate(30deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.confirm:hover {
+  box-shadow: 0px 10px 40px -12px #ffbb0052;
+  transition: 1s;
+}
+
+.inputs:focus {
+  border-color: #ffae00;
+  box-shadow: 0px 5px 20px -6px #ffbb0052;
+}
+.span-required {
+  color: #e63636;
+  display: none;
+}
+nav {
+  display: flex;
+
+  align-items: center;
+  background-color: #ffae00;
+  height: 13vh;
+  width: 100%;
+  padding: 0 20px;
+  color: rgb(0, 0, 0);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+nav a:hover {
+  background-color: #f8da77;
+}
+
+nav .logo {
+  width: 80px;
+  height: 80px;
+  margin-right: auto;
+}
+
+.endereco {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}

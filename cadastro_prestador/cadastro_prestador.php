@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css"/> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="script.js"></script>   
+    <title>Cadastro</title>
+</head>
+<body>
+    <div class="p-3 mb-2 bg-warning text-dark">
+        <ul class="nav nav-tabs">
+          <p class="text-center">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="../tela_inicio/projeto_1.html">Menu Inicial</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Serviços</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../eletricista/trabalho_eletricista.html">Eletricista</a></li>
+              <li><a class="dropdown-item" href="../encanador/trabalho_encanador.html">Encanador</a></li>
+              <li><a class="dropdown-item" href="../encanador_de_gas/trabalho_encanador_de_gas.html">Encanador de Gás</a></li>
+              <li><a class="dropdown-item" href="../jardinagem/trabalho_jardineiro.html">Jardinagem</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Cadastro</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../cadastro/index.html">Cadastro Cliente</a></li>
+              <li><a class="dropdown-item" href="../cadastro prestador/indexP.html">Cadastro Profissional</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Login</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="..//login/indexLogin.html">Login Cliente</a></li>
+              <li><a class="dropdown-item" href="../login prestador/indexLoginP.html">Login Profissional</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../configurações/index.html">Configuração</a>
+          </li>
+          </p>
+        </ul>
+      </div>
+    <div class="container">
+        <form id="form" class="form" method="post" action="./tela_cadastro_prestador.php">
+          <h1>Faça seu cadastro</h1>
+          <div>
+            <p id="nome" name = "Nome_Prestador">Nome: </p><input type="text" placeholder="Digite seu nome" class="inputs required" oninput="nameValidate()"></p>
+            <span class="span-required">Nome deve ter no mínimo 3 caracteres</span> 
+        </div>
+        <div>
+        <p id="emailP" name ="Email_Prestador">Email: <input id='email0' type="email" placeholder="Digite seu email" class="inputs required" oninput="emailValidate()"></p>
+            <span class="span-required">Digite um email válido</span> 
+        </div>
+        <div>
+            <p id="senhaP" name = "Senha_Prestador">Senha: <input type="password" placeholder="Senha" class="inputs required" oninput="mainPasswordValidate()"></p>
+            <span class="span-required">Digite uma senha com no mínimo 8 caracteres</span>
+        </div>
+        <div>
+            <p id="senha_checkP" name = "Senha_Prestador">Confirme sua senha: <input type="password" placeholder="Repita a sua senha" class="inputs required" oninput="comparePassword()"></p>
+            <span class="span-required">Senhas devem ser compatíveis</span>
+        </div>
+        <div>
+            <p id="pcpf" name = "CPF_Prestador">Insira seu cpf: <input type="text" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" class="inputs required" placeholder="Cpf com pontos e traços" oninput="cpfValidate()"></p>
+            <span class="span-required">Digite um cpf válido</span>
+        </div>
+        <div>
+            <p id="Ptelefone" name = "Celular_Prestador">Insira seu celular: <input type="text" id="telefone" name="telefone" class="inputs required" placeholder="(**)*****-****" pattern="[0-9]{2}[0-9]{9}" oninput="celValidate()"></p>
+            <span class="span-required">Digite um número válido</span>
+        </div>
+        <div>
+        <p>Selecione seu serviço</p>    
+        <select id="minha_caixa" name="minha_caixa"> 
+        <optgroup label="Selecione seu serviço">
+            <option id="eletricista" name="">Eletricista</option>
+            <option value="encanador">Encanador</option>
+            <option value="gás">Serviços de gás</option>
+            <option value="jardineiro">Jardineiro</option>
+          </optgroup>
+        </div>
+        <input type="submit" id="submit" value="Realizar cadastro" class="confirm" name="enviar">
+
+        </form>
+    </div>
+    <img src="https://i.pinimg.com/originals/72/b8/37/72b837fd1445b2262993752accac89f3.png" alt="">
+    <script>
+        const form   = document.getElementById('form');
+        const campos = document.querySelectorAll('.required');
+        const spans  = document.querySelectorAll('.span-required');
+        const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+    
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            nameValidate();
+            emailValidate();
+            mainPasswordValidate();
+            comparePassword();
+        });
+    
+        function setError(index){
+            campos[index].style.border = '2px solid #e63636';
+            campos[index].style.boxShadow = '0px 5px 20px -6px #720909';
+            spans[index].style.display = 'block';
+        }
+    
+        function removeError(index){
+            campos[index].style.border = '';
+            campos[index].style.boxShadow = '';
+    
+            spans[index].style.display = 'none';
+        }
+    
+        function nameValidate(){
+            if(campos[0].value.length < 3)
+            {
+                setError(0);
+            }
+            else
+            {
+                removeError(0);
+            }
+        }
+    
+        function emailValidate(){
+            if(!emailRegex.test(campos[1].value))
+            {
+                setError(1);
+            }
+            else
+            {
+                removeError(1);
+            }
+        }
+    
+        function mainPasswordValidate(){
+            if(campos[2].value.length < 8)
+            {
+                setError(2);
+            }
+            else
+            {
+                removeError(2);
+                comparePassword();
+            }
+        }
+    
+        function comparePassword(){
+            if(campos[2].value == campos[3].value && campos[3].value.length >= 8)
+            {
+                removeError(3);
+            }
+            else
+            {
+                setError(3);
+            }
+        }
+
+        function cpfValidate(){
+            if((!campos[4].checkValidity()))
+            {
+                setError(4);
+            }
+            else
+            {
+                removeError(4);
+            }
+        }
+
+        function celValidate(){
+            if((!campos[5].checkValidity()))
+            {
+                setError(5);
+            }
+            else
+            {
+                removeError(5);
+            }
+            const form = document.querySelector('form');
+    form.addEventListener('submit', (event) => {
+    event.preventDefault(); 
+    window.location.href = '../login prestador/indexLoginP.html';
+});
+            
+            
+    
+        }
+       
+     
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1/dist/es-module-shims.min.js" crossorigin="anonymous"></script>
+    <script type="importmap">{
+      "imports": {
+        "@popperjs/core": "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/esm/popper.min.js",
+        "bootstrap": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.esm.min.js"
+      }
+    }
+    </script>
+    <script type="module">
+      import * as bootstrap from 'bootstrap'
+
+      new bootstrap.Popover(document.getElementById('popoverButton'))
+    </script>
+
+    
+</body>
+</html>
