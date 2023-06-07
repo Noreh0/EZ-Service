@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+body {
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Noto Sans',sans-serif;
+  background-color: #fff;
+    
+}
+body *{
+  box-sizing: border-box;
+}
+
+h1 {
+    font-family: 'Noto Sans',sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    font-size: 60px;
+}
+
+.form {
+  width: 600px;
+  height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px  35px ;
+    background: #ffffff;
+    box-shadow: 0px 10px 40px #00000056;
+    border-left: 10px solid #ffae00;
+    border-right: 10px solid #ffae00;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p {
+  justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px 0;
+    color: #000000de;
+    margin-bottom: 10px;    
+}
+
+input{
+
+    width: 100%;
+    border: 2px solid #dadada;
+    border-radius: 10px;
+    padding: 15px;
+    background: #dadada;
+    color: #000000de;
+    font-size: 12pt;
+    outline: none;
+    box-sizing: border-box;
+    transition: .3s;
+  }
+  
+  input::placeholder{
+    color: #472b0094;
+  }
+
+
+  .login {
+    width: 300px;
+    padding: 16px 0 ;
+    margin: 25px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    background: #ffae00;
+    cursor: pointer;
+   
+    display: block;
+    
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+
+ .container{
+  
+
+  position: relative;
+  
+  align-items: center;
+ 
+  display: block;
+    
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+
+ 
+
+  
+  }
+
+ 
+
+  @keyframes spin {
+    0%, 100% {
+      transform: rotate(30deg);
+    }
+    50% {
+      transform: rotate(-30deg);
+    }
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+    
+  .link {
+text-align: center;
+
+
+  }
+
+  .link0 {
+    color: #ffae00;
+  }
+
+.login:hover {
+    box-shadow: 0px 10px 40px -12px #ffbb0052;
+    transition: 1s;
+   } 
+  
+.input:focus {
+    border-color: #ffae00;
+    box-shadow: 0px 5px 20px -6px #ffbb0052;
+   }
+  
+  nav {
+    display: flex;
+    
+    align-items: center;
+    background-color: #ffae00;
+    height: 13vh;
+    width: 100%;
+    padding: 0 20px;
+    color: rgb(0, 0, 0);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: #f8da77;
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: auto;
+}
+ 
